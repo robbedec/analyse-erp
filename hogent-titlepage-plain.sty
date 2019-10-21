@@ -1,0 +1,65 @@
+%===============================================================================
+% hogent-titlepage-plain.sty
+%===============================================================================
+%
+% LaTeX package voor het invoegen van een voorpagina voor een rapport, verslag,
+% of ander lang document. Dit is een eenvoudige variant met een gekozen achter-
+% grond- en tekstkleur. Kies bij voorkeur één van de officiële huisstijlkleuren,
+% gedefinieerd in hogent-report.cls. Rechtsonder de titelpagina wordt het
+% HOGENT-logo getoond in het wit.
+%
+% Deze package definieert een commando \inserttitlepage met twee optionele
+% argumenten, achtergrondkleur (standaard zwart) en daarna voorgrondkleur
+% (standaard wit). Voorbeelden:
+%
+% \inserttitlepage                 % Witte tekst op zwarte achtergrond
+% \inserttitlepage[hgblue]         % Witte tekst op blauwe achtergrond
+% \inserttitlepage[white][black]   % Zwarte tekst op witte achtergrond
+%
+% Auteur: Bert Van Vreckem <bert.vanvreckem@hogent.be>
+% Licentie:
+%   CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%===============================================================================
+
+\ProvidesClass{hogent-titlepage-plain}[2019/06/04 Titelpagina verslag HOGENT]
+\NeedsTeXFormat{LaTeX2e}
+
+\RequirePackage{titling}
+\RequirePackage{xcolor}
+\RequirePackage{afterpage}
+\RequirePackage{xparse}
+
+%-------------------------------------------------------------------------------
+% Code voor het invoegen van een titelpagina
+%-------------------------------------------------------------------------------
+% Let op als je aanpassingen maakt: de marge en grootte van het logo zijn op
+% elkaar afgestemd. De HOGENT huisstijlregels vragen dat het logo onderaan
+% rechts getoond wordt en op een afstand van de breedte van de letters HO in het
+% logo. Deze zijn ~56% van de breedte van de afbeelding.
+% 56% van 3 cm (breedte van het logo) is ongeveer 1,7 cm, vandaar deze marges.
+
+\NewDocumentCommand{\inserttitlepage}{ O{black} O{white} }{%
+  \begin{titlepage}
+    % Marges proportioneel tov breedte logo
+    \newgeometry{top=1.7cm,bottom=1.7cm,left=1.7cm,right=1.7cm}
+    % Stel achtergrondkleur van de voorpagina in
+    \pagecolor{#1}\afterpage{\nopagecolor}
+    \begingroup
+    \vspace*{8cm}
+    \sffamily\bfseries
+    \fontsize{35pt}{12pt}\selectfont
+    \textcolor{#2}{\@title}\\[1cm]
+    \fontsize{20pt}{12pt}\selectfont
+    \textcolor{#2}{\@author}\\[1cm]
+    \fontsize{18pt}{12pt}\selectfont
+    \textcolor{#2}{\@date}
+    \vfill
+    \endgroup
+    % HOGENT logo komt onderaan rechts
+    \hfill\includegraphics[width=3cm]{HOGENT_Logo_Neg_rgb.png}
+    \restoregeometry
+  \end{titlepage}
+}
+
+\endinput
