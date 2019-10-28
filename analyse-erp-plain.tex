@@ -3,7 +3,7 @@
 \usepackage{hogent-titlepage-plain} % Voorpagina
 \usepackage{lipsum}
 
-\title{Een heel lange titel met veel woorden om het effect te zien}
+\title{Het requirementsmanagement proces bij ERP-implementaties}
 \author{Robbe Decorte, Wannes {De Craene}, Lars Vandenberghe, Bram {De Bleecker}}
 \date{\today}
 
@@ -14,29 +14,10 @@
 
   \tableofcontents
   
-  \chapter{Inleiding}
   
-  \lipsum[1]
   
-  \section{Foo}
-  
-  Dit kost \EUR{10,00}. $\overline{x} = \frac{1}{n} \sum_{i = 1}^{n} x_i$
-  
-  \texttt{dit is monogespatieerde tekst}
-  
-  \lipsum[2-3]
-  
-  \section{Bar}
-  
-  \lipsum[4-6]
-  
-  \chapter{Literatuurstudie}
-  
-  \lipsum[7]
-  
-  \section{Test}
-  
-  \lipsum[8-10]
+  \input{literatuurstudie}
+  \input{vragen}
   
   \chapter{Interview}
   
@@ -57,5 +38,10 @@
   \section{Lars Vandenberghe}
   
   \section{Bram De Bleecker}
+  \autocite{Decorte1999}
+  
+  \printbibliography[heading=bibintoc]
+
+  
   
 \end{document}
