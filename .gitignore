@@ -2,7 +2,6 @@
 .*#
 *~
 *.sav
-*.bak
 
 ## R
 .RData
