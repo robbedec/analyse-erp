@@ -16,4 +16,8 @@
   url    = {https://www.erpfocus.com/requirements-management-considerations-for-erp-implementation.html},
 }
 
+@Online{Bdc2019,
+  url = {https://www.bdc.ca/en/articles-tools/technology/invest-technology/pages/custom-vs-off-the-shelf-erp-systems.aspx},
+}
+
 @Comment{jabref-meta: databaseType:biblatex;}
