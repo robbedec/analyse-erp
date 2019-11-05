@@ -15,12 +15,16 @@
   \tableofcontents
   
   \input{literatuurstudie}
-  \input{vragen}
+  %\input{vragen}
   \input{interview}
   \input{analyse}
   \input{conclusie}
   \input{reflectie}  
 
-  \printbibliography[heading=bibintoc]
+
+  \begin{appendix}
+      \include{vragen}  
+      \printbibliography[heading=bibintoc]
+  \end{appendix}
 
 \end{document}
